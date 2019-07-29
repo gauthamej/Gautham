@@ -1,3 +1,6 @@
 a=input()
 b=input()
-print(min(b))
+c=b.split()
+d=sorted(c)
+e=' '.join(d)
+print(e[0])
