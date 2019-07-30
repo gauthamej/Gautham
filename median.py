@@ -1,0 +1,7 @@
+a=input()
+b=input()
+c=b.split()
+d=sorted(c)
+e=''.join(d)
+f=(len(e)//2)
+print(e[f])
