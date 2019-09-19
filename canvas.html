@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>triangle</title>
+    <script type="text/javascript" src="F:\thamizh\jQueryBasics-master\js\jquery-2.1.4.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+    <div style="border:solid 1px;height: 300px;width:300px">
+        <canvas id="mycanvas" ></canvas>
+</div>
+    
+    <button type="button" id="but1">draw triangle</button>
+    <button type="button" id="but2">rotate triangle</button>
+    <button type="button" id="but3">clear triangle</button>
+</body>
+<script>
+    
+$(document).ready(function(){
+    var canvas = document.getElementById("mycanvas");
+    var context = canvas.getContext('2d');
+    $("#but1").click(function(){
+        context.lineWidth = 1;
+        context.strokeStyle = '#000';        
+        context.fillStyle = 'blue';
+        context.beginPath();
+        context.moveTo(60, 240);
+        context.lineTo(240,240);
+        context.lineTo(150, 60);             
+        context.closePath();
+        context.fill();
+        context.stroke();
+        context.restore();
+    })
+    $("#but2").click(function(){
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.lineWidth = 1;
+        context.strokeStyle = '#000';        
+        context.fillStyle = 'blue';
+        context.beginPath();
+        context.save();
+        context.translate(canvas.width / 2, canvas.height / 2);
+        context.rotate(Math.PI/ 4);
+        context.moveTo(-90, 90);
+        context.lineTo(70,30);
+        context.lineTo(10,-90);             
+        context.closePath();
+        context.fill();
+        context.stroke();
+        context.restore();
+    })
+    $("#but3").click(function(){
+        context.clearRect(0, 0, canvas.width, canvas.height);
+    })
+})
+</script>
+</html>
